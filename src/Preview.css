@@ -1,0 +1,24 @@
+.preview{
+   display: flex;
+   flex-direction: column;
+   position: relative;
+}
+
+.preview-bg{
+   margin-top:60px;
+   width:340px;
+   background-repeat: no-repeat;
+   background-size:contain;
+}
+.preview-area{
+   position: absolute;
+   left: 10px;
+   top: 130px;
+   width: 100px;
+   height: 100px;
+   background: white;
+   overflow: hidden;
+}
+.preview-target{
+   position: absolute;
+}

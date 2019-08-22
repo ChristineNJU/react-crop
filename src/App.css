@@ -1,6 +1,81 @@
 .App {
-  text-align: center;
+  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.content{
+  margin-top:60px;
+  width:700px;
+  height:400px;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-start; */
+  align-items: stretch;
+  background: white;
+}
+.upload ,.preview-warpper{
+  width:50%;
+  /* background: #eeeeee; */
+  border:1px white solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.crop{
+  position: relative;
+  margin-top:20px;
+  /* width:100%; */
+}
+.crop .image-origin{
+  width:100%;
+}
+.crop .crop-bg{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+}
+.crop-select{
+  position: absolute;
+  border:1px #53ACF4 solid;
+  cursor: move;
+  box-sizing: border-box;
+}
+.crop-resize{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  background: #53ACF4;
+  cursor: nwse-resize;
+}
+.btn{
+  margin-right:20px;
+  display:inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: white;
+  background: #53ACF4;
+  cursor: pointer;
+}
+.btn-upload{
+  cursor: pointer;
+}
+/* .preview{
+  width:50%;
+  background: #cccccc;  
+} */
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
