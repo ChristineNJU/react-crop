@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 import Preview from './Preview';
 // import kangna from './kangna.png';
 import './App.css';
+import { throttle } from './util';
 
 function App() {
   const ratio = 1;
@@ -71,6 +72,24 @@ function App() {
     setIsDragging(false);
     setIsResizing(false);
   }
+  
+  // const [_movingLast, _setMovingLast] = useState(null);
+  // function cropMouseMoving(e){
+  //   e.persist();
+  //   if(!isDragging && !isResizing) return;
+  //   let _current = new Date();
+
+  //   if(!_movingLast || _current - _movingLast > 40){
+  //     _setMovingLast(_current)
+  //     let currentMouse = {
+  //       x:e.clientX,
+  //       y:e.clientY
+  //     }
+  //     console.log('moving');
+  //     if(isDragging) selectMove(currentMouse)
+  //     if(isResizing) selectResize(currentMouse)
+  //   }
+  // }
   function cropMouseMoving(e){
     e.persist();
     if(!isDragging && !isResizing) return;
@@ -81,6 +100,7 @@ function App() {
     if(isDragging) selectMove(currentMouse)
     if(isResizing) selectResize(currentMouse)
   }
+
   function selectMove(currentMouse){
     if(!isDragging) return;
     let offsetX = currentMouse.x - mouseBegin.x;
@@ -185,7 +205,7 @@ function App() {
               className="crop-bg" 
               onMouseDown={cropMouseDown}
               onMouseUp={cropMouseUp}
-              onMouseMove={cropMouseMoving}
+              onMouseMove={throttle(cropMouseMoving,40)}
               onMouseLeave={cropMouseUp}
             >
               <div 
